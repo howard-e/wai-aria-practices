@@ -13,7 +13,7 @@ post-processed with [ReSpec](https://pages.github.com/), into a multi-page stati
 
 ## Local development
 
-- Ensure Ruby and Node (v14 or greater) are installed.
+- Ensure Ruby (v2.6.2) and Node (v14 or greater) are installed.
 - Clone this repo: `git clone git@github.com:bocoup/wai-aria-practices.git`
 - Initialize submodules: `git submodule update --init --recursive`
 - Install Jekyll: `bundle install`.
