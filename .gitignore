@@ -5,6 +5,5 @@ _site
 .netlify
 vendor
 node_modules
-content
 index
 landmarks
