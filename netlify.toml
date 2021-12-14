@@ -8,5 +8,3 @@ RUBY_VERSION = "2.6.2"
 [[redirects]]
   from = "/"
   to = "/aria-practices/"
-  from = "/index/"
-  to = "/index/index.html"
