@@ -15,7 +15,7 @@ last_updated: 2022-02-16
 
 <link rel="stylesheet" href="/assets/styles.css">
 <!-- Code highlighting styles -->
-<link rel="stylesheet" href="/example-index/css/github.css">
+<link rel="stylesheet" href="/index/css/github.css">
 
 <div>
 <ul class="tiles">
