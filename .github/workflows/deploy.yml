@@ -3,6 +3,8 @@ name: Deploy to Netlify
 on:
   workflow_dispatch:
 
+  pull_request_target:
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
