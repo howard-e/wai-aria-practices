@@ -4,5 +4,6 @@ _site
 .DS_Store
 .netlify
 vendor
+.bundle
 node_modules
 landmarks
