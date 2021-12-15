@@ -121,10 +121,10 @@ GEM
       jekyll (>= 3.6, < 5.0)
 
 PLATFORMS
-  x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   wai-gems!
 
 BUNDLED WITH
-   2.2.32
+   2.2.33
