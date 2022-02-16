@@ -81,7 +81,7 @@ last_updated: 2022-02-16
       <cite><a data-matched-text="[[[wai-aria-1.2]]]" href="https://www.w3.org/TR/wai-aria-1.2/">Accessible Rich Internet Applications (WAI-ARIA) 1.2</a></cite> [<cite><a class="bibref" data-link-type="biblio" href="/about/#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2">WAI-ARIA-1.2</a></cite>]
       specification, providing detailed advice and examples beyond what would be appropriate to a technical specification but which are important to understand the specification.
     </p>
-    <p> This draft includes only a portion of content planned for <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> Authoring Practices 1.2. To see plans for the complete guide, review the <a href="https://github.com/w3c/aria-practices/milestones?direction=asc&amp;sort=due_date&amp;state=open">Authoring Practices Milestone Plan</a>. </p>
+    <p>This draft includes only a portion of content planned for <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> Authoring Practices 1.2. To see plans for the complete guide, review the <a href="https://github.com/w3c/aria-practices/milestones?direction=asc&amp;sort=due_date&amp;state=open">Authoring Practices Milestone Plan</a>. </p>
     <p>
       Feedback on the  information provided here is essential to the ultimate success of Rich Internet Applications that afford full access to their information and operations.
       The Accessible Rich Internet Applications Working Group asks in particular:
@@ -209,7 +209,7 @@ last_updated: 2022-02-16
       </ul>
     </section>
 
-    <div data-include="common/acknowledgements/funders.html" data-include-replace="true" data-include-id="include-5021780993901683" class="respec-offending-element" title="`data-include` failed: `common/acknowledgements/funders.html` (Failed to fetch)." id="respec-offender-data-include-failed-common-acknowledgements-funders-html-failed-to-fetch"></div>
+    <div data-include="common/acknowledgements/funders.html" data-include-replace="true" data-include-id="include-6364343849992966" class="respec-offending-element" title="`data-include` failed: `common/acknowledgements/funders.html` (Failed to fetch)." id="respec-offender-data-include-failed-common-acknowledgements-funders-html-failed-to-fetch"></div>
 
   </section>
         <section id="references" class="appendix"><div class="header-wrapper"><h2 id="d-references">References</h2></div><section id="informative-references"><div class="header-wrapper"><h3 id="d-1-informative-references">Informative references</h3></div>
