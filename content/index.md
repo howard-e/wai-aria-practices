@@ -53,7 +53,7 @@ lang: en
           <div class="top-box">
             <div class="top-detail-1 detail-1"></div>
             <div class="detail-2"></div>
-            <h1>ARIA Authoring Practices Guide (APG) Home</h1>
+            <h1>ARIA Authoring Practices Guide (APG) Homely again</h1>
             <p>
         Learn to use the accessibility semantics defined by the Accessible Rich Internet Application (ARIA) specification to create accessible web experiences.
         This guide describes how to apply accessibility semantics to common design patterns and widgets.
@@ -225,7 +225,7 @@ lang: en
         <p class="collaboration-p">
           
         The APG Task Force relies on broad community representation and participation to continuously improve the usefulness and quality of the APG.
-        There are a variety of ways you can get involved and help promote development of accessible experiences. 
+        There are a variety of ways you can get involved and help promote development of accessible experiences.
       
         </p>
       </div>
@@ -268,7 +268,7 @@ lang: en
           <div>
             <h3>Mailing Lists</h3>
             <p>
-            The APG Task Force uses the public aria-practices mailing list for email discussion. 
+            The APG Task Force uses the public aria-practices mailing list for email discussion.
             Meeting announcements, agendas, and links to minutes are sent to the mailing list.
             While GitHub issues are the preferred place to discuss APG content, the mailing list is available to anyone who would prefer to communicate with the APG Task Force via email.
           </p><p>
