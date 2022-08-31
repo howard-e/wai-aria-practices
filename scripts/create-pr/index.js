@@ -10,7 +10,7 @@ const octokit = new Octokit({
     let createPullRequestResult;
 
     let isSuccess = process.env.OUTCOME === 'success';
-    let runId = process.env.run_id;
+    let runId = process.env.RUN_ID;
 
     console.log('verify repo user', process.env.REPO_OWNER)
 
@@ -60,9 +60,9 @@ const octokit = new Octokit({
             previewLinkIndex = apgPrBody.indexOf('PR Preview [failed to build]')
         }
 
-        let previewLinkUrl = `https://deploy-preview-${waiPrNumber || createPullRequestResult.data.number}--wai-aria-practices2.netlify.app`;
+        let previewLinkUrl = `https://deploy-preview-${waiPrNumber || createPullRequestResult.data.number}--wai-aria-practices-howarde.netlify.app`;
         if (previewLinkIndex < 0) { // no preview link in PR body; append
-            apgPrBody = `${apgPrBody}\n__\nPR Preview [failed to build](https://github.com/howard-e/wai-aria-practices/runs/${runId}?check_suite_focus=true). _(Last tried on ${new Date().toUTCString()})._`
+            apgPrBody = `${apgPrBody}\n___\nPR Preview [failed to build](https://github.com/howard-e/wai-aria-practices/runs/${runId}?check_suite_focus=true). _(Last tried on ${new Date().toUTCString()})._`
         } else { // replace existing preview link in PR body
             let stringRemainder = apgPrBody.substring(previewLinkIndex);
             let urlToChange = stringRemainder.match(/\(([^)]+)\)/)[1];
@@ -117,7 +117,7 @@ const octokit = new Octokit({
 
         let apgPrBody = getApgPrResult.data.body || '';
         let previewLinkIndex = apgPrBody.indexOf('[WAI Preview Link]');
-        let previewLinkUrl = `https://deploy-preview-${waiPrNumber || createPullRequestResult.data.number}--wai-aria-practices2.netlify.app`;
+        let previewLinkUrl = `https://deploy-preview-${waiPrNumber || createPullRequestResult.data.number}--wai-aria-practices-howarde.netlify.app`;
 
         if (previewLinkIndex < 0) { // no preview link in PR body; append
             apgPrBody = `${apgPrBody}\n___\n[WAI Preview Link](${previewLinkUrl})`;
