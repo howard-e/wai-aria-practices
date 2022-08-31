@@ -12,7 +12,10 @@ const octokit = new Octokit({
     let isSuccess = process.env.OUTCOME === 'success';
     let runId = process.env.run_id;
 
-    if (!isSuccess) {
+    console.log('verify repo user', process.env.REPO_OWNER)
+
+    // TODO: Reverse condition after test
+    if (isSuccess) {
         const pullsListResult = await octokit.rest.pulls.list({
             owner: 'howard-e',
             repo: 'wai-aria-practices'

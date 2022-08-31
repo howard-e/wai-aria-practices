@@ -77,5 +77,6 @@ jobs:
           APG_SHA: ${{ github.event.inputs.apg_sha }}
           APG_BRANCH: ${{ github.event.inputs.apg_branch }}
           APG_PR_NUMBER: ${{ github.event.inputs.apg_pr_number }}
+          REPO_OWNER: ${{ github.repository_owner }}
           OUTCOME: ${{ steps.update_site_files.outcome }}
           RUN_ID: ${{ github.run_id }}
