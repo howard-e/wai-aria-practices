@@ -47,7 +47,7 @@ jobs:
           git switch apg/${{ github.event.inputs.apg_branch }} 2>/dev/null || git switch -c apg/${{ github.event.inputs.apg_branch }}
 
       - name: Update site files
-        id: update-site-files
+        id: update_site_files
         working-directory: ./
         run: |
           bundle install
@@ -58,7 +58,7 @@ jobs:
         continue-on-error: true
 
       - name: Commit changed files and submodule updates
-        if: steps.update-site-files.outcome != 'success'
+        if: steps.update_site_files.outcome == 'success'
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Commit changed files and submodule updates
@@ -77,5 +77,5 @@ jobs:
           APG_SHA: ${{ github.event.inputs.apg_sha }}
           APG_BRANCH: ${{ github.event.inputs.apg_branch }}
           APG_PR_NUMBER: ${{ github.event.inputs.apg_pr_number }}
-          OUTCOME: ${{ steps.update-site-files.outcome }}
+          OUTCOME: ${{ steps.update_site_files.outcome }}
           RUN_ID: ${{ github.run_id }}
