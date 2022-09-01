@@ -60,9 +60,10 @@ const octokit = new Octokit({
             previewLinkIndex = apgPrBody.indexOf('PR Preview [failed to build]')
         }
 
-        let previewLinkUrl = `https://deploy-preview-${waiPrNumber || createPullRequestResult.data.number}--${previewLink}`;
+        let previewLinkUrl = `https://github.com/${repositoryOwner}/wai-aria-practices/runs/${runId}?check_suite_focus=true`;
+        // let previewLinkUrl = `https://github.com/${repositoryOwner}/wai-aria-practices/actions/runs/${runId}`;
         if (previewLinkIndex < 0) { // no preview link in PR body; append
-            apgPrBody = `${apgPrBody}\n___\nPR Preview [failed to build](https://github.com/${repositoryOwner}/wai-aria-practices/runs/${runId}?check_suite_focus=true). _(Last tried on ${new Date().toUTCString()})._`
+            apgPrBody = `${apgPrBody}\n___\nPR Preview [failed to build](${previewLinkUrl}). _(Last tried on ${new Date().toUTCString()})._`
         } else { // replace existing preview link in PR body
             let stringRemainder = apgPrBody.substring(previewLinkIndex);
             let urlToChange = stringRemainder.match(/\(([^)]+)\)/)[1];
