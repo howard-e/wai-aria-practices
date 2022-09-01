@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Current Job Log URL
+      - name: Get current job and log url
         uses: Tiryoh/gha-jobid-action@v0
         id: jobs
         with:
