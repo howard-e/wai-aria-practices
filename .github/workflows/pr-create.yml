@@ -86,4 +86,4 @@ jobs:
           APG_PR_NUMBER: ${{ github.event.inputs.apg_pr_number }}
           REPO_OWNER: ${{ github.repository_owner }}
           OUTCOME: ${{ steps.update_site_files.outcome }}
-          JOB_ID: ${{ steps.jobs.outputs.html_url }}
+          JOB_ID: ${{ steps.jobs.outputs.job_id }}
