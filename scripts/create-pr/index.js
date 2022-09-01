@@ -9,7 +9,7 @@ const octokit = new Octokit({
     let waiPrNumber;
     let createPullRequestResult;
 
-    const runId = process.env.RUN_ID;
+    const jobId = process.env.JOB_ID;
     const isSuccess = process.env.OUTCOME === 'success';
     const repositoryOwner = process.env.REPO_OWNER;
     const previewLink = 'wai-aria-practices-howarde.netlify.app';
@@ -60,8 +60,7 @@ const octokit = new Octokit({
             previewLinkIndex = apgPrBody.indexOf('PR Preview [failed to build]')
         }
 
-        let previewLinkUrl = `https://github.com/${repositoryOwner}/wai-aria-practices/runs/${runId}?check_suite_focus=true`;
-        // let previewLinkUrl = `https://github.com/${repositoryOwner}/wai-aria-practices/actions/runs/${runId}`;
+        let previewLinkUrl = `https://github.com/${repositoryOwner}/wai-aria-practices/runs/${jobId}?check_suite_focus=true`;
         if (previewLinkIndex < 0) { // no preview link in PR body; append
             apgPrBody = `${apgPrBody}\n___\nPR Preview [failed to build](${previewLinkUrl}). _(Last tried on ${new Date().toUTCString()})._`
         } else { // replace existing preview link in PR body
@@ -76,6 +75,7 @@ const octokit = new Octokit({
             pull_number: process.env.APG_PR_NUMBER,
             body: apgPrBody
         });
+        console.info('pull.update.success.failure.block', apgPrBody);
         return;
     }
 
@@ -135,7 +135,7 @@ const octokit = new Octokit({
             pull_number: process.env.APG_PR_NUMBER,
             body: apgPrBody
         });
-        console.info('pull.update.success');
+        console.info('pull.update.success.success.block', apgPrBody);
     } catch (e) {
         console.error('octokit.call.fail', e);
     }

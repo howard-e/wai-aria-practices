@@ -74,9 +74,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Output Current Job Log URL
-        run: echo ${{ steps.jobs.outputs.html_url }}
-
       - name: Create pull request
         working-directory: ./
         run: |
@@ -89,4 +86,4 @@ jobs:
           APG_PR_NUMBER: ${{ github.event.inputs.apg_pr_number }}
           REPO_OWNER: ${{ github.repository_owner }}
           OUTCOME: ${{ steps.update_site_files.outcome }}
-          RUN_ID: ${{ github.run_id }}
+          JOB_ID: ${{ steps.jobs.outputs.html_url }}
