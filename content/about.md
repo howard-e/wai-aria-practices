@@ -81,7 +81,7 @@ lang: en
   </section>
         <section id="change_log" class="appendix"><div class="header-wrapper"><h2 id="b-change-history">Change History</h2></div>
     
-    
+
     <p>
       APG 1.1 supported ARIA 1.1, and this version, APG 1.2, includes changes to support version 1.2 of the ARIA specification.
       It also includes nearly 200 significant updates to improve the quality and breadth of content.
@@ -128,7 +128,7 @@ lang: en
         GitHub issues closed in the first working draft of APG 1.2 published on July 17, 2018.
       </li>
     </ul>
-    
+
   </section>
         <section id="acknowledgements" class="appendix"><div class="header-wrapper"><h2 id="c-acknowledgements">Acknowledgements</h2></div><h3>Editors</h3><dl><dt>Current editors:</dt><dd class="editor p-author h-card vcard" data-editor-id="44582">
     <a class="ed_mailto u-email email p-name" href="mailto:mck@fb.com">Matt King</a> (<span class="p-org org h-org">Facebook</span>)
@@ -152,14 +152,15 @@ lang: en
     
     <section id="honorary-editor"><div class="header-wrapper"><h3 id="c-1-honorary-editor">Honorary Editor</h3></div>
       
-      <p>This version of the ARIA Authoring Practice Guide is dedicated to the memory of 
-        Carolyn MacLeod whose contributions our Task Force sees throughout Authoring Practice Guides. 
-        She was  dedicated to all aspects of the ARIA Authoring Practice Guide from suggesting editorial edits for the clarification to testing APG examples with assistive technologies.</p>
+      <p>
+        This version of the ARIA Authoring Practices Guide is dedicated to the memory of Carolyn MacLeod whose contributions are visible  throughout the entire guide.
+        She was dedicated to all aspects of the work of the APG Task Force from writing code and suggesting editorial revisions to testing  examples with assistive technologies.
+      </p>
       <ul>
         <li>Carolyn MacLeod (IBM Canada)</li>
       </ul>
     </section>
-    <section id="major-contributors-to-version-1-1"><div class="header-wrapper"><h3 id="c-2-major-contributors-to-version-1-1">Major Contributors to Version 1.1</h3></div> 
+    <section id="major-contributors-to-version-1-1"><div class="header-wrapper"><h3 id="c-2-major-contributors-to-version-1-1">Major Contributors to Version 1.1</h3></div>
       
       <p>
         While <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> Authoring Practices 1.1 is the work of the entire Authoring Practices Task Force and also benefits from many people throughout the open source community who both contribute significant work and provide valuable feedback,
@@ -230,7 +231,7 @@ lang: en
       </ul>
     </section>
 
-    <div data-include="common/acknowledgements/funders.html" data-include-replace="true" data-include-id="include-5473305503667893" class="respec-offending-element" title="`data-include` failed: `common/acknowledgements/funders.html` (Failed to fetch)." id="respec-offender-data-include-failed-common-acknowledgements-funders-html-failed-to-fetch"></div>
+    <div data-include="common/acknowledgements/funders.html" data-include-replace="true" data-include-id="include-7807417255959304" class="respec-offending-element" title="`data-include` failed: `common/acknowledgements/funders.html` (Failed to fetch)." id="respec-offender-data-include-failed-common-acknowledgements-funders-html-failed-to-fetch"></div>
 
   </section>
         <section id="references" class="appendix"><div class="header-wrapper"><h2 id="d-references">References</h2></div><section id="informative-references"><div class="header-wrapper"><h3 id="d-1-informative-references">Informative references</h3></div>
