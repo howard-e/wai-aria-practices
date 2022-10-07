@@ -97,7 +97,7 @@ if (enableSidebar) document.body.classList.add('has-sidebar');
           Instead, the keyboard commands described in this section enable users to move focus among the elements in a <code>menubar</code> or <code>menu</code>.
         </p>
         <ul>
-          <li><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: 
+          <li><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>:
             <ul>
               <li>Move  focus into a <code>menubar</code>:
                 <ul>
