@@ -76,10 +76,11 @@ jobs:
 
       - name: Commit changed files and submodule updates
         if: steps.update_site_files.outcome == 'success'
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Commit changed files and submodule updates
           branch: apg/${{ github.event.inputs.apg_branch }}
+          commit_author: 41898282+github-actions[bot]@users.noreply.github.com
           push_options: '--force'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
