@@ -20,6 +20,9 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Get current job and log url
         uses: Tiryoh/gha-jobid-action@v0
