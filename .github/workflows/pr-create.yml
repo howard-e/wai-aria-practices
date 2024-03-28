@@ -80,7 +80,7 @@ jobs:
         with:
           commit_message: Commit changed files and submodule updates
           branch: apg/${{ github.event.inputs.apg_branch }}
-          commit_author: 41898282+github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           push_options: '--force'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
