@@ -63,10 +63,10 @@ jobs:
           git fetch fork
           git checkout ${{ github.event.inputs.apg_sha }}
 
-      - name: Switch to and create/update branch
-        run: |
-          # switch to branch if exists or create branch
-          git switch apg/${{ github.event.inputs.apg_branch }} 2>/dev/null || git switch -c apg/${{ github.event.inputs.apg_branch }}
+#      - name: Switch to and create/update branch
+#        run: |
+#          # switch to branch if exists or create branch
+#          git switch apg/${{ github.event.inputs.apg_branch }} 2>/dev/null || git switch -c apg/${{ github.event.inputs.apg_branch }}
 
       - name: Update site files
         id: update_site_files
