@@ -65,6 +65,13 @@ jobs:
           # switch to branch if exists or create branch
           git switch apg/${{ github.event.inputs.apg_branch }} 2>/dev/null || git switch -c apg/${{ github.event.inputs.apg_branch }}
 
+      - name: Force rebase switched branch onto main
+        run: |
+          git fetch origin main
+          git rebase --force-rebase origin/main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Update site files
         id: update_site_files
         working-directory: ./
