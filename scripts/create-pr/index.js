@@ -54,6 +54,12 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
     body: apgPrBody,
   });
   console.info("pulls.update.success", apgPrBody);
+
+  // Means there was still an error updating the WAI Preview Link
+  if (!isSuccess) {
+    console.error('failure.3', additionalBodyContent)
+    process.exit(3);
+  }
 };
 
 (async () => {
@@ -104,7 +110,7 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
 
     await updateApgPrBody(waiPrNumber, createPullRequestResult);
   } catch (e) {
-    console.error("failure.block.2", e);
-    process.exit(2);
+    console.error("failure.2", e);
+    process.exit(1);
   }
 })();

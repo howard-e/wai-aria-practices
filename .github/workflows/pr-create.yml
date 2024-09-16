@@ -87,6 +87,7 @@ jobs:
       - name: Create pull request
         working-directory: ./
         run: |
+          set -e
           npm install -C scripts/create-pr
           node ./scripts/create-pr
         env:
