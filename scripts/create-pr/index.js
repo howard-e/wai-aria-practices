@@ -65,6 +65,7 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
       await updateApgPrBody();
     } catch (e) {
       console.error("failure.1", e);
+      process.exit(1);
     }
     return;
   }
@@ -104,5 +105,6 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
     await updateApgPrBody(waiPrNumber, createPullRequestResult);
   } catch (e) {
     console.error("failure.block.2", e);
+    process.exit(2);
   }
 })();

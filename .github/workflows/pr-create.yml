@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Get current job and log url
-        uses: Tiryoh/gha-jobid-action@v0
+        uses: Tiryoh/gha-jobid-action@v1
         id: jobs
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
 
       - name: Commit changed files and submodule updates
         if: steps.update_site_files.outcome == 'success'
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Commit changed files and submodule updates
           branch: apg/${{ github.event.inputs.apg_branch }}
