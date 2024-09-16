@@ -68,7 +68,7 @@ jobs:
             BRANCH_NAME="apg/${{ github.event.inputs.apg_branch }}"
           fi
           
-          # switch to branch if exists or create branch
+          # switch to branch if exists or create branch; format will be "apg/({username}-?){branch_name}"
           git switch "$BRANCH_NAME" 2>/dev/null || git switch -c "$BRANCH_NAME"
           
           echo "BRANCH_NAME=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
@@ -96,7 +96,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Commit changed files and submodule updates
-          branch: apg/${{ steps.switch_branch.outputs.BRANCH_NAME }}
+          branch: ${{ steps.switch_branch.outputs.BRANCH_NAME }}
           push_options: '--force'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
