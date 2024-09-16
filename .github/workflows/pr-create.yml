@@ -45,25 +45,30 @@ jobs:
           ruby-version: 3.3
 
       - name: Update git submodules
-        if: github.event.inputs.fork_path == 'false'
         run: |
           git submodule update --recursive --remote
           cd _external/aria-practices
-          git checkout ${{ github.event.inputs.apg_sha }}
-
-      - name: Update git submodules from fork
-        if: github.event.inputs.fork_path != 'false'
-        run: |
-          git submodule update --recursive --remote
-          cd _external/aria-practices
-          git remote add fork https://github.com/${{ github.event.inputs.fork_path }}.git
-          git fetch fork
+          
+          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
+            echo "Found fork: ${{ github.event.inputs.fork_path }}"
+            git remote add fork https://github.com/${{ github.event.inputs.fork_path }}.git
+            git fetch fork
+          fi
+          
           git checkout ${{ github.event.inputs.apg_sha }}
 
       - name: Switch to and create/update branch
         run: |
+          # get the username from fork_path
+          if [ -n "${{ github.event.inputs.fork_path }}" ]; then
+            USERNAME=$(echo "${{ github.event.inputs.fork_path }}" | cut -d'/' -f1)
+            BRANCH_NAME="apg/${USERNAME}-${{ github.event.inputs.apg_branch }}"
+          else
+            BRANCH_NAME="apg/${{ github.event.inputs.apg_branch }}"
+          fi
+          
           # switch to branch if exists or create branch
-          git switch apg/${{ github.event.inputs.apg_branch }} 2>/dev/null || git switch -c apg/${{ github.event.inputs.apg_branch }}
+          git switch "$BRANCH_NAME" 2>/dev/null || git switch -c "$BRANCH_NAME"
 
       - name: Force rebase switched branch onto main
         run: |
