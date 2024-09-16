@@ -67,6 +67,8 @@ jobs:
 
       - name: Force rebase switched branch onto main
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git rebase --force-rebase origin/main
         env:
