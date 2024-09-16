@@ -87,8 +87,9 @@ jobs:
       - name: Create pull request
         working-directory: ./
         run: |
+          set -e
           npm install -C scripts/create-pr
-          node ./scripts/create-pr || { echo "create-pr failed with exit code $?"; exit $?; }
+          node ./scripts/create-pr
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           APG_SHA: ${{ github.event.inputs.apg_sha }}
