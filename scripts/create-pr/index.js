@@ -6,7 +6,7 @@ const octokit = new Octokit({
 });
 
 const jobId = process.env.JOB_ID;
-const isSuccess = process.env.OUTCOME === 'success';
+const isSuccess = process.env.OUTCOME !== 'success';
 const repositoryOwner = process.env.REPO_OWNER;
 const previewLink = 'aria-practices.netlify.app';
 
