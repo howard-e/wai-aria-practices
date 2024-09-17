@@ -44,12 +44,26 @@ jobs:
         with:
           ruby-version: 3.3
 
+      - name: Conditionally define fork's username if exists
+        run: |
+          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
+            FORK_USERNAME=$(echo "${{ github.event.inputs.fork_path }}" | cut -d'/' -f1)
+            if [ "$FORK_USERNAME" != "${{ github.repository_owner }}" ]; then
+              echo "FORK_USERNAME=$FORK_USERNAME" >> "$GITHUB_ENV"
+              echo "FORK_USERNAME is set to: $FORK_USERNAME"
+            else
+              echo "FORK_USERNAME is equal to repository owner (${FORK_USERNAME}), skipping GITHUB_ENV assignment."
+            fi
+          else
+            echo "Invalid fork_path, skipping FORK_USERNAME assignment."
+          fi
+
       - name: Update git submodules
         run: |
           git submodule update --recursive --remote
           cd _external/aria-practices
           
-          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
+          if [ -n "$FORK_USERNAME" ]; then
             echo "Found fork: ${{ github.event.inputs.fork_path }}"
             git remote add fork https://github.com/${{ github.event.inputs.fork_path }}.git
             git fetch fork
@@ -61,9 +75,8 @@ jobs:
         id: switch_branch
         run: |
           # get the username from fork_path
-          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
-            USERNAME=$(echo "${{ github.event.inputs.fork_path }}" | cut -d'/' -f1)
-            WAI_APG_BRANCH_NAME="apg/${USERNAME}-${{ github.event.inputs.apg_branch }}"
+          if [ -n "$FORK_USERNAME" ]; then
+            WAI_APG_BRANCH_NAME="apg/${FORK_USERNAME}-${{ github.event.inputs.apg_branch }}"
           else
             WAI_APG_BRANCH_NAME="apg/${{ github.event.inputs.apg_branch }}"
           fi
