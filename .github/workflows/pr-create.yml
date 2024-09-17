@@ -61,7 +61,7 @@ jobs:
         id: switch_branch
         run: |
           # get the username from fork_path
-          if [ -n "${{ github.event.inputs.fork_path }}" ]; then
+          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
             USERNAME=$(echo "${{ github.event.inputs.fork_path }}" | cut -d'/' -f1)
             WAI_APG_BRANCH_NAME="apg/${USERNAME}-${{ github.event.inputs.apg_branch }}"
           else
