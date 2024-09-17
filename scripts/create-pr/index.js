@@ -6,6 +6,7 @@ const octokit = new Octokit({
 });
 
 const jobId = process.env.JOB_ID;
+// Representing if the 'Update site files' step was done. Outside of auth errors, the only other potential error
 const isSuccess = process.env.OUTCOME !== 'success';
 const repositoryOwner = process.env.REPO_OWNER;
 const previewLink = 'aria-practices.netlify.app';
@@ -16,6 +17,7 @@ const ERROR_LIST_PULL_REQUESTS = 103;
 const ERROR_CREATE_PULL_REQUEST = 104;
 const ERROR_GET_PULL_REQUEST = 105;
 const ERROR_UPDATE_PULL_REQUEST = 106;
+const ERROR_CREATE_COMMIT_STATUS = 107;
 
 const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
   // Update APG PR
@@ -77,6 +79,23 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
   // Means there was still an error updating the WAI Preview Link
   if (!isSuccess) {
     console.error('error.site.files.update', additionalBodyContent);
+
+    try {
+      // Display build error on triggering PR's commit
+      await octokit.rest.repos.createCommitStatus({
+        owner: repositoryOwner,
+        repo: 'aria-practices',
+        sha: process.env.APG_SHA,
+        state: 'failure',
+        target_url: previewLinkUrl, // Populated by the failing CI job:step link
+        description: `WAI Preview Link failed to build in wai-aria-practices/pr-create (${ERROR_SITE_FILES_UPDATE})`,
+        context: 'WAI Preview Link failed to build',
+      });
+    } catch (e) {
+      console.error('error.create.commit.status', e);
+      process.exit(ERROR_CREATE_COMMIT_STATUS);
+    }
+
     process.exit(ERROR_SITE_FILES_UPDATE);
   }
 };
@@ -136,5 +155,10 @@ const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
     }
   }
 
-  await updateApgPrBody(waiPrNumber, createPullRequestResult);
+  try {
+    await updateApgPrBody(waiPrNumber, createPullRequestResult);
+  } catch (e) {
+    console.error('error.apg.body.update', e);
+    process.exit(ERROR_APG_BODY_UPDATE);
+  }
 })();
