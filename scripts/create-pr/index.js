@@ -10,12 +10,12 @@ const isSuccess = process.env.OUTCOME !== 'success';
 const repositoryOwner = process.env.REPO_OWNER;
 const previewLink = 'aria-practices.netlify.app';
 
-const ERROR_APG_BODY_UPDATE = 1001;
-const ERROR_SITE_FILES_UPDATE = 1002;
-const ERROR_LIST_PULL_REQUESTS = 1003;
-const ERROR_CREATE_PULL_REQUEST = 1004;
-const ERROR_GET_PULL_REQUEST = 1005;
-const ERROR_UPDATE_PULL_REQUEST = 1006;
+const ERROR_APG_BODY_UPDATE = 101;
+const ERROR_SITE_FILES_UPDATE = 102;
+const ERROR_LIST_PULL_REQUESTS = 103;
+const ERROR_CREATE_PULL_REQUEST = 104;
+const ERROR_GET_PULL_REQUEST = 105;
+const ERROR_UPDATE_PULL_REQUEST = 106;
 
 const updateApgPrBody = async (waiPrNumber, createPullRequestResult) => {
   // Update APG PR
