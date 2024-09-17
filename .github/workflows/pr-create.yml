@@ -63,7 +63,7 @@ jobs:
           git submodule update --recursive --remote
           cd _external/aria-practices
           
-          if [ -n "$FORK_USERNAME" ]; then
+          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ]; then
             echo "Found fork: ${{ github.event.inputs.fork_path }}"
             git remote add fork https://github.com/${{ github.event.inputs.fork_path }}.git
             git fetch fork
@@ -75,8 +75,8 @@ jobs:
         id: switch_branch
         run: |
           # get the username from fork_path
-          if [ -n "$FORK_USERNAME" ]; then
-            WAI_APG_BRANCH_NAME="apg/${FORK_USERNAME}-${{ github.event.inputs.apg_branch }}"
+          if [ -n "${{ github.event.inputs.fork_path }}" ] && [ "${{ github.event.inputs.fork_path }}" != 'false' ] && [ -n "$FORK_USERNAME" ]; then
+             WAI_APG_BRANCH_NAME="apg/${FORK_USERNAME}-${{ github.event.inputs.apg_branch }}"
           else
             WAI_APG_BRANCH_NAME="apg/${{ github.event.inputs.apg_branch }}"
           fi
