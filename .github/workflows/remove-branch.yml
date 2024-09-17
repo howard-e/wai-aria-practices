@@ -30,13 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      #      - name: Clean up generated branch
-      #        if: ${{ steps.check_if_exists.outputs.BRANCH_EXISTS == '1' }}
-      #        uses: dawidd6/action-delete-branch@v3
-      #        with:
-      #          github_token: ${{ github.token }}
-      #          branches: apg/${{ github.event.inputs.apg_branch }}
-
       - name: Report branch already removed
         if: ${{ steps.check_if_exists.outputs.BRANCH_EXISTS == '0' }}
         run: echo "Branch already removed"
