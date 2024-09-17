@@ -57,7 +57,7 @@ lang: en
           <div class="top-box">
             <div class="top-detail-1 detail-1"></div>
             <div class="detail-2"></div>
-            <h1>ARIA Authoring Practices Guide (APG) Home</h1>
+            <h1>ARIA Authoring Practices Guide (APG) Home Again</h1>
             <p>
         Learn to use the accessibility semantics defined by the Accessible Rich Internet Application (ARIA) specification to create accessible web experiences.
         This guide describes how to apply accessibility semantics to common design patterns and widgets.
@@ -155,7 +155,7 @@ lang: en
                 
                   <div class="collaboration-item">
                     <img alt="An icon showing two human shapes carrying a burden." src="../../content-images/wai-aria-practices/images/index-7.svg">
-                    <h3>Contribute via GitHub</h3>
+                    <h3>Contribute via GitHubbb</h3>
                     <p>
             Many valuable contributions are made by people who find or raise issues of interest in our GitHub repository and then submit proposed changes via a GitHub pull request.
             If you choose this path, please start by studying our guidelines for contributing to the repository and maintaining code quality.
