@@ -88,8 +88,8 @@ jobs:
 
       - name: Force rebase switched branch onto main
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "w3cgruntbot"
+          git config --global user.email "w3cgruntbot@users.noreply.github.com"
           git fetch origin main
           git rebase --force-rebase origin/main
         env:
@@ -108,9 +108,9 @@ jobs:
         if: steps.update_site_files.outcome == 'success'
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_user_name: github-actions[bot]
-          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          commit_user_name: w3cgruntbot
+          commit_user_email: w3cgruntbot@users.noreply.github.com
+          commit_author: w3cgruntbot <w3cgruntbot@users.noreply.github.com>
           commit_message: "chore: Update branch with latest `${{ github.event.inputs.apg_branch }}` changes and submodule updates"
           branch: ${{ steps.switch_branch.outputs.WAI_APG_BRANCH_NAME }}
           push_options: '--force'

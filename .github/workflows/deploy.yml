@@ -38,9 +38,9 @@ jobs:
     - name: Commit changed files and submodule updates
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
-        commit_user_name: github-actions[bot]
-        commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
-        commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+        commit_user_name: w3cgruntbot
+        commit_user_email: w3cgruntbot@users.noreply.github.com
+        commit_author: w3cgruntbot <w3cgruntbot@users.noreply.github.com>
         commit_message: "chore: Update `main` with latest changes from `aria-practices`"
         branch: main
       env:
