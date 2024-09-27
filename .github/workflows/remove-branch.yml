@@ -23,7 +23,7 @@ jobs:
       - name: Clean up generated branch
         if: ${{ steps.check_if_exists.outputs.BRANCH_EXISTS == '1' }}
         run: |
-          BRANCH_NAME="apg/${{ github.event.inputs.apg_branch }}"
+          BRANCH_NAME="${{ github.event.inputs.apg_branch }}"
           git config --global user.name "w3cgruntbot"
           git config --global user.email "w3cgruntbot@users.noreply.github.com"
           git push origin --delete $BRANCH_NAME
