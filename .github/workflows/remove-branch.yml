@@ -17,7 +17,7 @@ jobs:
       - name: Check if branch exists
         id: check_if_exists
         run: |
-          BRANCH_EXISTS=$(git ls-remote --heads https://github.com/${{ github.repository_owner }}/wai-aria-practices.git apg/${{ github.event.inputs.apg_branch }} | wc -l)
+          BRANCH_EXISTS=$(git ls-remote --heads https://github.com/${{ github.repository_owner }}/wai-aria-practices.git ${{ github.event.inputs.apg_branch }} | wc -l)
           echo "BRANCH_EXISTS=$BRANCH_EXISTS" >> "$GITHUB_OUTPUT"
 
       - name: Clean up generated branch
