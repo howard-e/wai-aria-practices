@@ -1,5 +1,5 @@
 [build]
-command = "git submodule update --init --remote && bundle exec jekyll build --config '_config.yml,_config_staging.yml'"
+command = "rm -rf .git/modules .git/modules/* .git/index .git/.gitmodules .netlify .cache node_modules build dist out && git submodule update --init --remote && bundle exec jekyll build --config '_config.yml,_config_staging.yml'"
 publish = "_site"
 
 [build.environment]
